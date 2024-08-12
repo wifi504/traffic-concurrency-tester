@@ -17,7 +17,7 @@ public class DownloadTask implements Runnable {
     private final String savePath; // 本地保存目录
     private final String header; // 携带的请求头
 
-    private static int size; // 累计流量统计
+    private static double size = 0; // 累计流量统计
     private static int count = 1; // 累计文件数统计
 
     /**
@@ -48,7 +48,7 @@ public class DownloadTask implements Runnable {
     /**
      * @return 当前累计流量
      */
-    public static int getSize() {
+    public static double getSize() {
         return size;
     }
 
@@ -89,7 +89,7 @@ public class DownloadTask implements Runnable {
             int readCount = 0;
             byte[] bytes = new byte[4096];
             while ((readCount = inputStream.read(bytes)) != -1) {
-                size += readCount;
+                size += readCount / 1024.0 / 1024.0;
                 if (PropLoader.isReallyDown()) {
                     outputStream.write(bytes, 0, readCount);
                 }

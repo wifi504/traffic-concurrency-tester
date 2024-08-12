@@ -12,18 +12,18 @@ public class InfoDaemonThread implements Runnable {
      * 输出当前下载进度
      */
     public static void show() {
-        double d = DownloadTask.getSize() / 1024.0 / 1024.0;
+        double d = DownloadTask.getSize();
         double sizeMB = Math.round(d * 100) / 100.0;
-        double sizeGB = sizeMB / 1024.0;
-        double sizeTB = sizeGB / 1024.0;
+        double sizeGB = Math.round(sizeMB / 1024.0 * 100) / 100.0;
+        double sizeTB = Math.round(sizeGB / 1024.0 * 100) / 100.0;
 
         String out;
         if (sizeMB < 1024) {
             out = sizeMB + "MB";
         } else if (sizeGB < 1024) {
-            out = sizeGB + "GB";
+            out = sizeGB + "GB (" + sizeMB + "MB)";
         } else {
-            out = sizeTB + "TB";
+            out = sizeTB + "TB (" + sizeGB + "GB)";
         }
         System.out.println("当前累计下载：" + out);
     }
