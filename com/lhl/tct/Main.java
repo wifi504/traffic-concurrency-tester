@@ -15,8 +15,8 @@ public class Main {
                 " /_  __/ ____/  /_  __/__  _____/ /____  _____\n" +
                 "  / / / /        / / / _ \\/ ___/ __/ _ \\/ ___/\n" +
                 " / / / /___     / / /  __(__  ) /_/  __/ /    \n" +
-                "/_/  \\____/    /_/  \\___/____/\\__/\\___/_/     \n" +
-                "流量并发性测试工具 (Traffic Concurrency Tester)\n" +
+                "/_/  \\____/    /_/  \\___/____/\\__/\\___/_/     \n\n" +
+                "流量并发性测试工具v1.0 (Traffic Concurrency Tester)\n" +
                 "Author: WIFI连接超时\n" +
                 "Github: https://github.com/wifi504/traffic-concurrency-tester \n" +
                 "----------------------------------------------");
