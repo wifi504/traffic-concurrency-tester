@@ -9,7 +9,7 @@
 
 > 警告：请不要使用本工具在未经许可的情况下压测他人服务器，滥用本工具对自身/他人造成的财产损失等本人概不负责！
 
-1. 下载 Release ，解压并双击 `run-in-windows.bat` 即可运行程序，首次运行会提示修改配置文件
+1. 下载 [Release](https://github.com/wifi504/traffic-concurrency-tester/releases/) ，解压并双击 `run-in-windows.bat` 即可运行程序，首次运行会提示修改配置文件
 
 2. 使用文本编辑器打开当前目录中的 `config.properties` 文件
 
