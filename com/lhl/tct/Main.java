@@ -34,17 +34,17 @@ public class Main {
             file.mkdir();
         }
 
+        // 启动输出下载进度的守护线程
+        Thread thread = new Thread(new InfoDaemonThread());
+        thread.setDaemon(true);
+        thread.start();
+
         // 提交下载任务
         ExecutorService executorService = Executors.newFixedThreadPool(PropLoader.getThreadNum());
         for (int i = 0; i < PropLoader.getCount(); i++) {
             executorService.submit(new DownloadTask(fileURL, file.getPath(), PropLoader.getReferer()));
         }
         executorService.shutdown();
-
-        // 启动输出下载进度的守护线程
-        Thread thread = new Thread(new InfoDaemonThread());
-        thread.setDaemon(true);
-        thread.start();
 
         // 等待所有下载线程结束后退出 main 线程，并打印最终进度信息
         while (true) {
