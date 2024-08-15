@@ -24,8 +24,13 @@ public class PropLoader {
     static {
         file = new File("config.properties");
         if (!file.isFile()) {
-            try (FileOutputStream fos = new FileOutputStream(file); FileOutputStream referer = new FileOutputStream("referer.txt")) {
-                String str = "#下载文件数量\ncount=10\n" + "#多线程启用数量\nthreadNum=5\n" + "#文件下载链接\nfileURL=\n" + "#是否保留下载文件到当前temp目录下\nreallyDownload=false\n\n\n" + "#若出现403等错误，请配置请求头到 referer.txt";
+            try (FileOutputStream fos = new FileOutputStream(file);
+                 FileOutputStream referer = new FileOutputStream("referer.txt")) {
+                String str = "#下载文件数量\ncount=10\n"
+                        + "#最大线程数量\nthreadNum=5\n"
+                        + "#文件下载链接\nfileURL=\n"
+                        + "#是否保留下载文件到当前temp目录下\nreallyDownload=false\n\n\n"
+                        + "#若出现403等错误，请配置请求头到 referer.txt";
                 fos.write(str.getBytes());
                 fos.flush();
             } catch (IOException e) {
@@ -51,8 +56,8 @@ public class PropLoader {
     /**
      * @return 下载任务数量
      */
-    public static int getCount() {
-        return Integer.parseInt(config.get("count"));
+    public static long getCount() {
+        return Long.parseLong(config.get("count"));
     }
 
     /**

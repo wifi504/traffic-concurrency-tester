@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
+ * 完成下载任务的线程
+ *
  * @author lhl
  * @version 1.0
  * Create Time 2024/8/12_14:53
